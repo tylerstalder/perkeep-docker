@@ -1,6 +1,13 @@
 # perkeep-docker
 
-A multistage docker build for [Perkeep](https://perkeep.org).
+A multistage docker build for [Perkeep].
+
+## Docker Hub
+
+This container is available as an automated build on [Docker Hub]:
+
+- stable/master: `docker pull jhillyerd/perkeep:stable`
+- latest/develop: `docker pull jhillyerd/perkeep:latest`
 
 ## Building
 
@@ -31,3 +38,7 @@ which you will need to edit to customize your username and password.
 ### Ports
 
 - `3179/tcp` Perkeep's HTTP interface.
+
+
+[Docker Hub]: https://hub.docker.com
+[Perkeep]:    https://perkeep.org
