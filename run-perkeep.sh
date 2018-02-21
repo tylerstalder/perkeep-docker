@@ -20,6 +20,7 @@ cat >"$CONFIG" << EOT
 {
     "auth": "userpass:$USERPASS",
     "listen": ":3179",
+    "baseURL": "",
     "camliNetIP": "",
     "identity": "$KEY",
     "identitySecretRing": "$KEYRING",

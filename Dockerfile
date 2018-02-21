@@ -18,7 +18,7 @@ COPY . .
 RUN go install ./...
 
 # Package minimal image
-FROM alpine:3.7
+FROM alpine:3.5
 RUN apk add --no-cache ca-certificates libjpeg-turbo-utils
 WORKDIR /usr/bin
 COPY --from=builder /go/src/perkeep.org/bin/camlistored .
