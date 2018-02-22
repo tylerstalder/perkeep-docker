@@ -31,6 +31,6 @@ RUN mkdir /storage && chown perkeep: /storage
 # Run perkeep
 VOLUME /config
 VOLUME /storage
-EXPOSE 80 443 3179 8080
+EXPOSE 3179
 USER perkeep
 CMD ["/run-perkeep.sh"]

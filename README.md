@@ -1,6 +1,6 @@
 # perkeep-docker
 
-A multistage docker build for [Perkeep].
+A multistage docker build for [Perkeep].  Final image is under 50MB.
 
 ## Docker Hub
 
@@ -15,7 +15,7 @@ To build and run the container locally:
 
     git clone https://github.com/jhillyerd/perkeep-docker
     cd perkeep-docker
-    docker build -t perkeep .
+    docker build -t perkeep . # creates image perkeep:latest
     ./run-container.sh
 
 This will create `$HOME/perkeep/config` and `$HOME/perkeep/storage`.  You should
