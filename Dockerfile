@@ -1,5 +1,6 @@
 # Multi-stage docker build for perkeep
-FROM golang:1.8-alpine as builder
+ARG GOLANG_VERSION=1.8
+FROM golang:${GOLANG_VERSION}-alpine as builder
 ARG PERKEEP_REF=8f1a7df176
 
 # Dependencies
