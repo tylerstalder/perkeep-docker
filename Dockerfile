@@ -1,7 +1,7 @@
 # Multi-stage docker build for perkeep
-ARG GOLANG_VERSION=1.8
+ARG GOLANG_VERSION=1.10
 FROM golang:${GOLANG_VERSION}-alpine as builder
-ARG PERKEEP_REF=8f1a7df176
+ARG PERKEEP_REF=0.10
 
 # Dependencies
 RUN apk add --no-cache git ca-certificates sqlite-dev
@@ -22,7 +22,7 @@ RUN go install ./...
 FROM alpine:3.5
 RUN apk add --no-cache ca-certificates libjpeg-turbo-utils
 WORKDIR /usr/bin
-COPY --from=builder /go/src/perkeep.org/bin/camlistored .
+COPY --from=builder /go/bin/perkeepd .
 COPY --from=builder /go/bin/genkey .
 COPY run-perkeep.sh /
 RUN adduser -g Perkeep -D perkeep

@@ -29,4 +29,4 @@ cat >"$CONFIG" << EOT
 EOT
 fi
 
-exec /usr/bin/camlistored -configfile "$CONFIG"
+exec /usr/bin/perkeepd -configfile "$CONFIG"
