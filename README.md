@@ -2,12 +2,16 @@
 
 A multistage docker build for [Perkeep].  Final image is under 50MB.
 
-## Docker Hub
+## Configuration
 
-This container is available as an automated build on [Docker Hub]:
-
-- stable/master: `docker pull jhillyerd/perkeep:stable`
-- latest/develop: `docker pull jhillyerd/perkeep:latest`
+ - Create ~/perkeep/config
+ - Copy identity-secring.gpg into ^
+ - Copy server-config.json ^ 
+ - Create Google Cloud Storage bucket
+ - Create Google Cloud Platform service account https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating
+ - Set GOOGLE_APPLICATION_CREDENTIALS path in run-perkeep.sh
+ - Set googlecloudstorage key in configuration block to ':bucket-name/blobs'
+ - Set PERKEEP_REF in Dockerfile, I prefer a commit reference rather than a tag or master.
 
 ## Building
 

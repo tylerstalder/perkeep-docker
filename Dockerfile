@@ -1,14 +1,14 @@
 # Multi-stage docker build for perkeep
-ARG GOLANG_VERSION=1.10
+ARG GOLANG_VERSION=1.13
 FROM golang:${GOLANG_VERSION}-alpine as builder
-ARG PERKEEP_REF=0.10
+ARG PERKEEP_REF=9a1336816afdfcf36ae0ec3705e5ae4053748f10
 
 # Dependencies
 RUN apk add --no-cache git ca-certificates sqlite-dev
 RUN mkdir -p /go/src
 
 # Build perkeep
-RUN git clone https://camlistore.googlesource.com/camlistore /go/src/perkeep.org
+RUN git clone https://github.com/perkeep/perkeep.git /go/src/perkeep.org
 WORKDIR /go/src/perkeep.org
 RUN git checkout "$PERKEEP_REF"
 RUN go run make.go

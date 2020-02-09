@@ -6,6 +6,8 @@ CONFIG="/config/server-config.json"
 KEYRING="/config/identity-secring.gpg"
 USERPASS="perkeep:perkeep"
 
+export GOOGLE_APPLICATION_CREDENTIALS="/config/gcp-service-account.json"
+
 set -e
 
 if test ! -f "$CONFIG" -a ! -f "$KEYRING"; then
@@ -22,7 +24,7 @@ cat >"$CONFIG" << EOT
     "camliNetIP": "",
     "identity": "$KEY",
     "identitySecretRing": "$KEYRING",
-    "blobPath": "/storage/blobs",
+    "googlecloudstorage": ":bucket-name/blobs",
     "packRelated": true,
     "levelDB": "/storage/index.leveldb"
 }
